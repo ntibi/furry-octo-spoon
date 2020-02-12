@@ -16,11 +16,13 @@ async function getRemoteData() {
 async function getCachedPlayer(id) {
   let out;
 
-  out = dataCache.get(id);
+  if (process.env.USE_CACHE)
+    out = dataCache.get(id);
   if (!out) {
     out = (await getRemoteData(id)).players.find(x => x.id === id);
   }
-  dataCache.set(id, out);
+  if (process.env.USE_CACHE)
+    dataCache.set(id, out);
   return out;
 }
 
