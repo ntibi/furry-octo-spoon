@@ -3,7 +3,6 @@ const express = require('express');
 const { getPlayer, getAllPlayers } = require("./player/get");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.get('/players', async (req, res) => {
   const players = await getAllPlayers();
@@ -18,4 +17,4 @@ app.get('/player/:id', async (req, res) => {
     res.sendStatus(404);
 });
 
-app.listen(PORT);
+module.exports = app;
