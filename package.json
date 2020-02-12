@@ -2,8 +2,8 @@
   "name": "unattended_test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "start": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,5 +14,10 @@
     "husky": "^4.2.2",
     "jest": "^25.1.0",
     "nodemon": "^2.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "eslint --fix src"
+    }
   }
 }
